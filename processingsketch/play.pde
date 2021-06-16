@@ -1,5 +1,6 @@
 void play() {
   drawScene();
+  moveCircle();
   checkScore();
   checkRatios();
   checkIfEnding();
@@ -14,6 +15,17 @@ void drawScene() {
   drawPos(posMode, false);
   drawScore();
   drawRatios();
+}
+
+void moveCircle() {
+  circleCx += stepSize;
+  if (circleCx > width-bigCircleRad || circleCx < 0+bigCircleRad) {
+    stepSize = -stepSize;
+  }
+  circleCy += stepSize;
+  if (circleCy > height-bigCircleRad || circleCy < 0+bigCircleRad) {
+    stepSize = -stepSize;
+  }
 }
 
 void drawScore() {

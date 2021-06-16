@@ -45,11 +45,11 @@ void drawPos(String posType, boolean isFaded) {
   }
 }
 void drawMousePos(boolean isFaded) {
+  fill(32, 178, 170);
   if (isFaded == true) {
     stroke(102, 205, 170, 90);
-  }   
-  //fill(32,178,170);
-  else {
+    fill(32, 178, 170 );
+  } else {
     stroke(102, 205, 170);
   }
   posX = mouseX;
