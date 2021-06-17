@@ -4,7 +4,7 @@ void mousePressed() {
   checkEndPressed();
 }
 
-// drawing background elements + checking if we are in begin or play state to alter their opacity:
+// drawing background elements + checking if we are in begin or play state to alter their opacity (isFaded):
 
 //outermost circle (orange):
 void drawBigCircle(boolean isFaded) {
@@ -43,7 +43,7 @@ void drawSmallCircle(boolean isFaded) {
   circle(circleCx, circleCy, smallCircleRad*2);
 }
 
-// checking if mouse or center of mass should determine cursor circle position:
+// checking if mouse or center of mass should determine cursor circle position (posType):
 void drawPos(String posType, boolean isFaded) {
   if (posType.equals("mouse")) {
     drawMousePos(isFaded);
