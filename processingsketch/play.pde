@@ -21,13 +21,16 @@ void drawScene() {
 
 // causing circles to move & bounce:
 void moveCircle() {
-  circleCx += stepSize;
+
   if (circleCx > width-bigCircleRad || circleCx < 0+bigCircleRad) {
     stepSize = -stepSize;
   }
-  circleCy += stepSize;
   if (circleCy > height-bigCircleRad || circleCy < 0+bigCircleRad) {
     stepSize = -stepSize;
+  }
+  if (millis() % 1 == 0) {
+    circleCx += stepSize;
+    circleCy += stepSize;
   }
 }
 

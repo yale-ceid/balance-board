@@ -44,7 +44,7 @@ void setup() {
   circleCx = width/2;
   circleCy = height/2;
   isPlaying = false;
-  isEnding = false;
+  isEnding = false; 
 }
 
 // loop of begin/play/end states:
