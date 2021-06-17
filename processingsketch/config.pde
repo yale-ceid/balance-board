@@ -1,5 +1,4 @@
-// Variables physicians may want to configure:
-
+// variables physicians may want to configure:
 int bigCircleRad = 280;
 int medCircleRad = 180;
 int smallCircleRad = 80;

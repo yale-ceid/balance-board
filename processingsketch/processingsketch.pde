@@ -27,7 +27,8 @@ int timeBeforePlay;
 int posX;
 int posY;
 
-void setup() { // initialization of variables
+// initialization of variables:
+void setup() {
   size(800, 600);
   //myPort = new Serial(this, "/dev/cu.usbmodem1101",115200);
   //myPort.bufferUntil('\n');
@@ -46,7 +47,8 @@ void setup() { // initialization of variables
   isEnding = false;
 }
 
-void draw() { // loop of begin/play/end states
+// loop of begin/play/end states:
+void draw() {
   if (isEnding == true) {
     end();
   } else if (isPlaying == true) {
@@ -56,7 +58,8 @@ void draw() { // loop of begin/play/end states
   }
 }
 
-void serialEvent(Serial myPort) { // initializing load cells?
+// initializing load cells?:
+void serialEvent(Serial myPort) {
   String inString = myPort.readStringUntil('\n');
   if (inString != null) {
     inString = trim(inString);

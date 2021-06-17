@@ -1,4 +1,5 @@
-void begin() { // start screen
+// start screen:
+void begin() {
   background(0);
   drawBigCircle(true);
   drawMedCircle(true);
@@ -8,7 +9,8 @@ void begin() { // start screen
   drawBeginButton();
 }
 
-void beginDialogue() { // text on start screen
+// text on start screen:
+void beginDialogue() {
   fill(255);
   textFont(font, 48);
   textSize(30);
@@ -18,7 +20,8 @@ void beginDialogue() { // text on start screen
   fill(200);
 }
 
-void drawBeginButton() { // begin button
+// begin button:
+void drawBeginButton() {
   fill(0, 250, 154);
   stroke(0, 250, 154);
   rect(beginButtonX, beginButtonY, beginButtonW, beginButtonH, 10);
@@ -27,7 +30,8 @@ void drawBeginButton() { // begin button
   text("BEGIN", 600, 500);
 }
 
-void checkBeginPressed() { // checking if begin button has been pressed
+// playing & beginning counter if begin button has been pressed:
+void checkBeginPressed() {
   if (mouseX >= beginButtonX && mouseX <= (beginButtonX + beginButtonW) && mouseY >= beginButtonY && mouseY <= (beginButtonY + beginButtonH)) {
     isPlaying = true;
     timeBeforePlay = millis();

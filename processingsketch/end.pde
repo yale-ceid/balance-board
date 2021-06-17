@@ -1,3 +1,4 @@
+// end screen:
 void end() {
   background(0, 0, 0);
   fill(255, 255, 255);
@@ -7,6 +8,7 @@ void end() {
   drawEndButton();
 }
 
+// text on end screen:
 void drawEndText() {
   text("FINAL RESULTS:", width/2, height/2-150);
   text("Small : total ratio = " + nf(ratioSmallTotal, 0, 2), width/2, height/2-100);
@@ -14,6 +16,7 @@ void drawEndText() {
   text("Big : total ratio = " + nf(ratioBigTotal, 0, 2), width/2, height/2);
 }
 
+// end button:
 void drawEndButton() {
   fill(0, 250, 154);
   stroke(0, 250, 154);
@@ -22,12 +25,14 @@ void drawEndButton() {
   text("START OVER", 400, 423);
 }
 
+// resetting if end button has been pressed:
 void checkEndPressed() {
   if (isEnding && mouseX >= endButtonX && mouseX <= (endButtonX + endButtonW) && mouseY >= endButtonY && mouseY <= (endButtonY + endButtonH)) {
     reset();
   }
 }
 
+// resetting:
 void reset() {
   isPlaying = false;
   isEnding = false;

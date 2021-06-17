@@ -1,8 +1,12 @@
+// checking if begin/end buttons have been pressed:
 void mousePressed() {
   checkBeginPressed();
   checkEndPressed();
 }
 
+// drawing background elements + checking if we are in begin or play state to alter their opacity:
+
+//outermost circle (orange):
 void drawBigCircle(boolean isFaded) {
   if (isFaded == true) {
     stroke(255, 165, 0, 80);
@@ -15,6 +19,7 @@ void drawBigCircle(boolean isFaded) {
   circle(circleCx, circleCy, bigCircleRad*2);
 }
 
+// middle circle (yellow):
 void drawMedCircle(boolean isFaded) {
   if (isFaded == true) {
     stroke(255, 255, 153, 80);
@@ -26,6 +31,7 @@ void drawMedCircle(boolean isFaded) {
   circle(circleCx, circleCy, medCircleRad*2);
 }
 
+// innermost circle (green):
 void drawSmallCircle(boolean isFaded) {
   if (isFaded == true) {
     stroke(152, 251, 152, 80);
@@ -37,6 +43,7 @@ void drawSmallCircle(boolean isFaded) {
   circle(circleCx, circleCy, smallCircleRad*2);
 }
 
+// checking if mouse or center of mass should determine cursor circle position:
 void drawPos(String posType, boolean isFaded) {
   if (posType.equals("mouse")) {
     drawMousePos(isFaded);
@@ -44,6 +51,8 @@ void drawPos(String posType, boolean isFaded) {
     drawCOMPos(isFaded);
   }
 }
+
+// drawing mouse-based position cursor circle (blue):
 void drawMousePos(boolean isFaded) {
   fill(32, 178, 170);
   if (isFaded == true) {
@@ -57,6 +66,7 @@ void drawMousePos(boolean isFaded) {
   circle(mouseX, mouseY, cursCircleRad);
 }
 
+// drawing center-of-mass-based position cursor circle (blue):
 void drawCOMPos(boolean isFaded) {
   posX = 0;
   posY = 0;

@@ -1,3 +1,4 @@
+// play screen:
 void play() {
   drawScene();
   moveCircle();
@@ -6,6 +7,7 @@ void play() {
   checkIfEnding();
 }
 
+// drawing play scene:
 void drawScene() {
   background(0);
   fill(0);
@@ -17,6 +19,7 @@ void drawScene() {
   drawRatios();
 }
 
+// causing circles to move & bounce:
 void moveCircle() {
   circleCx += stepSize;
   if (circleCx > width-bigCircleRad || circleCx < 0+bigCircleRad) {
@@ -28,6 +31,7 @@ void moveCircle() {
   }
 }
 
+// drawing various scores in bottom left corner:
 void drawScore() {
   textSize(17);
   textAlign(LEFT, BOTTOM);
@@ -41,6 +45,7 @@ void drawScore() {
   text("Score: " + str(totalScoreNum), 50, 580);
 }
 
+// changing the score according to position:
 void checkScore() {
   float dBig = sqrt(pow(circleCy - posY, 2) + pow(circleCx - posX, 2));
   if (dBig <= bigCircleRad) {
@@ -57,12 +62,14 @@ void checkScore() {
   totalScoreNum++;
 }
 
+// checking ratios between various scores:
 void checkRatios() {
   ratioSmallTotal = smallScoreNum/float(totalScoreNum);
   ratioMedTotal = medScoreNum/float(totalScoreNum);
   ratioBigTotal = bigScoreNum/float(totalScoreNum);
 }
 
+// drawing ratios in bottom right corner:
 void drawRatios() {
   fill(255, 255, 255);
   textAlign(RIGHT, BOTTOM);
@@ -71,6 +78,7 @@ void drawRatios() {
   text("Big : total ratio = " + nf(ratioBigTotal, 0, 2), width-50, 560);
 }
 
+// checking if play state should end:
 void checkIfEnding() {
   if (millis()-timeBeforePlay > playTime) {
     isEnding = true;
