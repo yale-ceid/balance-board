@@ -74,25 +74,48 @@ void drawCOMPos(boolean isFaded) {
     return;
   }
 
-  float bottomLeftReading = float(lcReading[1]);
-  float topLeftReading = float(lcReading[2]);
-  float topRightReading = float(lcReading[3]);
+  // IF YOU'RE HAVING MAPPING PROBLEMS
+
+  // STEP ONE: MAKE SURE THESE ARE ACTUALLY BOTTOMLEFT, TOPLEFT ETC 
+  float bottomLeftReading = float(lcReading[2]);
+  float topLeftReading = float(lcReading[3]);
+  float topRightReading = float(lcReading[1]);
   float bottomRightReading = float(lcReading[4]);
 
-  float sumOfReadings = bottomLeftReading + topLeftReading + topRightReading + bottomRightReading;
-  float centerMassX = (( -1.0 * (bottomLeftReading + topLeftReading)) + (bottomRightReading + topRightReading)) / sumOfReadings;
-  float centerMassY = (( -1.0 * (topLeftReading + topRightReading)) + (bottomLeftReading + bottomRightReading)) / sumOfReadings;
+  // YOU CAN DEBUG BY UNCOMMENTING THIS
+  //println("BL: ", bottomLeftReading + ", BR: " + bottomRightReading 
+  //       + ", TL: " + topLeftReading + ", TR: " + topRightReading);
+
+  float sumOfReadings = bottomLeftReading + topLeftReading + 
+    topRightReading + bottomRightReading;
 
   if (sumOfReadings < 20) { 
     return;
   }
 
+  float centerMassX = (( -1.0 * (bottomLeftReading + topLeftReading)) + (bottomRightReading + topRightReading)) / sumOfReadings;
+  float centerMassY = (( -1.0 * (topLeftReading + topRightReading)) + (bottomLeftReading + bottomRightReading)) / sumOfReadings;
+
+  // STEP TWO: MAKE SURE THE CENTER OF MASS ARE LEGIT LOOKING
+  // CX: IT SHOULD BE BETWEEN: -1.0 on the left, +1.0 on the right
+  // CY: IT SHOULD BE BETWEEN: -1.0 on the top, +1.0 on the bottom
+
+  println("cx: " + centerMassX + ", cy: " + centerMassY);
+
+
+  // STEP THREE: FIGURE OUT THE MAPPING
+  // posX: IT SHOULD BE BETWEEN 0 and WIDTH
+  // posY: IT SHOULD BE BETWEEN 0 AND HEIGHT
+
   float xScaleStart = (25.3/float (width)) + (float (width)/2); 
   float xScaleEnd = (15/float (height) + (float(height)/2)); 
+
   posX = int(map(centerMassX, 1.0, - 1.0, xScaleStart, xScaleEnd));
   posY = 100;
-  println(posX);
-  println(posY);
+
+  print("posX: " + posX + ", posY: " + posY);
+
+
   if (isFaded == true) {
     stroke(102, 205, 170, 90);
   } else {
