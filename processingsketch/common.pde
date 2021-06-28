@@ -87,8 +87,10 @@ void drawCOMPos(boolean isFaded) {
     return;
   }
 
-  posX = int(map(centerMassX, 1.0, - 1.0, 133.1*2 + 235*2, 235*2 - 133.1*2));
-  posY = int(map(centerMassY, 1.0, - 1.0, 88.4*2 + 150*2, 150*2 - 88.4*2 ));
+  float xScaleStart = (25.3/float (width)) + (float (width)/2); 
+  float xScaleEnd = (15/float (height) + (float(height)/2)); 
+  posX = int(map(centerMassX, 1.0, - 1.0, xScaleStart, xScaleEnd));
+  posY = 100;
   println(posX);
   println(posY);
   if (isFaded == true) {

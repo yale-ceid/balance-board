@@ -30,8 +30,8 @@ int posY;
 // initialization of variables:
 void setup() {
   fullScreen();
-  //myPort = new Serial(this, "/dev/cu.usbmodem1101",115200); //comment this out if using mouse mode!
-  //myPort.bufferUntil('\n'); //comment this out if using mouse mode!
+  myPort = new Serial(this, "/dev/cu.usbmodem14101",115200); //comment this out if using mouse mode!
+  myPort.bufferUntil('\n'); //comment this out if using mouse mode!
   font = loadFont("Futura-Medium-48.vlw");
   rectMode(CENTER);
   beginButtonX = width/2;
