@@ -26,7 +26,7 @@ void beginDialogue() {
 void drawBeginButton() {
   fill(0, 250, 154);
   stroke(0, 250, 154);
-  rect(beginButtonX, beginButtonY, beginButtonW, beginButtonH, 10);
+  rect(beginButtonX - beginButtonW / 2, beginButtonY - beginButtonH / 2, beginButtonW, beginButtonH, 10);
   fill(0);
   textAlign(CENTER, CENTER);
   text("BEGIN", beginButtonX, beginButtonY);
@@ -34,7 +34,7 @@ void drawBeginButton() {
 
 // playing & beginning counter if begin button has been pressed:
 void checkBeginPressed() {
-  if (mouseX >= beginButtonX && mouseX <= (beginButtonX + beginButtonW) && mouseY >= beginButtonY && mouseY <= (beginButtonY + beginButtonH)) {
+  if (mouseX >= beginButtonX - beginButtonW / 2  && mouseX <= (beginButtonX + beginButtonW) && mouseY >= beginButtonY - beginButtonH / 2 && mouseY <= (beginButtonY + beginButtonH)) {
     isPlaying = true;
     timeBeforePlay = millis();
   }

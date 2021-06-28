@@ -21,7 +21,7 @@ void drawEndText() {
 void drawEndButton() {
   fill(0, 250, 154);
   stroke(0, 250, 154);
-  rect(endButtonX, endButtonY, endButtonW, endButtonH, 10);
+  rect(endButtonX - endButtonW / 2, endButtonY  - endButtonH / 2, endButtonW, endButtonH, 10);
   fill(0);
   textAlign(CENTER, CENTER);
   text("START OVER", endButtonX, endButtonY);
@@ -29,7 +29,7 @@ void drawEndButton() {
 
 // resetting if end button has been pressed:
 void checkEndPressed() {
-  if (isEnding && mouseX >= endButtonX && mouseX <= (endButtonX + endButtonW) && mouseY >= endButtonY && mouseY <= (endButtonY + endButtonH)) {
+  if (isEnding && mouseX >= endButtonX - endButtonW / 2 && mouseX <= (endButtonX + endButtonW) && mouseY >= endButtonY - endButtonH / 2 && mouseY <= (endButtonY + endButtonH)) {
     reset();
   }
 }

@@ -4,4 +4,4 @@ int medCircleRad = 180;
 int smallCircleRad = 80;
 int playTime = 10000;
 float stepSize = 0.8;
-String posMode = "COM"; // this can have two values: "mouse" or "COM"
+String posMode = "mouse"; // this can have two values: "mouse" or "COM"
