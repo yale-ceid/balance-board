@@ -1,5 +1,7 @@
 // start screen:
 void begin() {
+  circleCx = width/2;
+  circleCy = height/2;
   background(0);
   drawBigCircle(true);
   drawMedCircle(true);
@@ -13,10 +15,10 @@ void begin() {
 void beginDialogue() {
   fill(255);
   textFont(font, 48);
-  textSize(30);
+  textSize(50);
   textAlign(LEFT, TOP);
-  textLeading(50);
-  text("Welcome to the Balance Board!\nClick on the button below to start the game.", 50, 50);
+  textLeading(80);
+  text("Welcome to the Balance Board!\nClick on the button below to start the game.", 100, 100);
   fill(200);
 }
 
@@ -27,7 +29,7 @@ void drawBeginButton() {
   rect(beginButtonX, beginButtonY, beginButtonW, beginButtonH, 10);
   fill(0);
   textAlign(CENTER, CENTER);
-  text("BEGIN", 600, 500);
+  text("BEGIN", beginButtonX, beginButtonY);
 }
 
 // playing & beginning counter if begin button has been pressed:

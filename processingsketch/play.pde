@@ -21,31 +21,37 @@ void drawScene() {
 
 // causing circles to move & bounce:
 void moveCircle() {
-
-  if (circleCx > width-bigCircleRad || circleCx < 0+bigCircleRad) {
-    stepSize = -stepSize;
+  if (mouseX < width-smallCircleRad && mouseX > smallCircleRad)  {
+    circleCx = mouseX;
   }
-  if (circleCy > height-bigCircleRad || circleCy < 0+bigCircleRad) {
-    stepSize = -stepSize;
+  if (mouseY < height-smallCircleRad && mouseY > smallCircleRad) {
+    circleCy = mouseY;
   }
-  if (millis() % 1 == 0) {
-    circleCx += stepSize;
-    circleCy += stepSize;
-  }
+  
+  //if (circleCx > width-bigCircleRad || circleCx < 0+bigCircleRad) {
+  //  stepSize = -stepSize;
+  //}
+  //if (circleCy > height-bigCircleRad || circleCy < 0+bigCircleRad) {
+  //  stepSize = -stepSize;
+  //}
+  //if (millis() % 1 == 0) {
+  //  circleCx += stepSize;
+  //  circleCy += stepSize;
+  //}
 }
 
 // drawing various scores in bottom left corner:
 void drawScore() {
-  textSize(17);
+  textSize(30);
   textAlign(LEFT, BOTTOM);
   fill(255, 165, 0);
-  text("Score: " + str(bigScoreNum), 50, 520);
+  text("Score: " + str(bigScoreNum), 50, height-200);
   fill(255, 255, 153);
-  text("Score: " + str(medScoreNum), 50, 540);
+  text("Score: " + str(medScoreNum), 50, height-150);
   fill(152, 251, 152);
-  text("Score: " + str(smallScoreNum), 50, 560);
+  text("Score: " + str(smallScoreNum), 50, height-100);
   fill(255);
-  text("Score: " + str(totalScoreNum), 50, 580);
+  text("Total score: " + str(totalScoreNum), 50, height-50);
 }
 
 // changing the score according to position:
@@ -76,9 +82,9 @@ void checkRatios() {
 void drawRatios() {
   fill(255, 255, 255);
   textAlign(RIGHT, BOTTOM);
-  text("Small : total ratio = " + nf(ratioSmallTotal, 0, 2), width-50, 520);
-  text("Medium : total ratio = " + nf(ratioMedTotal, 0, 2), width-50, 540);
-  text("Big : total ratio = " + nf(ratioBigTotal, 0, 2), width-50, 560);
+  text("Small : total ratio = " + nf(ratioSmallTotal, 0, 2), width-50, height-150);
+  text("Medium : total ratio = " + nf(ratioMedTotal, 0, 2), width-50, height-100);
+  text("Big : total ratio = " + nf(ratioBigTotal, 0, 2), width-50, height-50);
 }
 
 // checking if play state should end:

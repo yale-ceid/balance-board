@@ -15,7 +15,7 @@ void drawBigCircle(boolean isFaded) {
   else {
     stroke(255, 165, 0);
   }
-  strokeWeight(3);
+  strokeWeight(5);
   circle(circleCx, circleCy, bigCircleRad*2);
 }
 

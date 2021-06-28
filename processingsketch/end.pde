@@ -10,10 +10,11 @@ void end() {
 
 // text on end screen:
 void drawEndText() {
-  text("FINAL RESULTS:", width/2, height/2-150);
-  text("Small : total ratio = " + nf(ratioSmallTotal, 0, 2), width/2, height/2-100);
-  text("Medium : total ratio = " + nf(ratioMedTotal, 0, 2), width/2, height/2-50);
-  text("Big : total ratio = " + nf(ratioBigTotal, 0, 2), width/2, height/2);
+  textSize(50);
+  text("FINAL RESULTS:", width/2, height/4);
+  textSize(40);
+  textLeading(80);
+  text("Small : total ratio = " + nf(ratioSmallTotal, 0, 2) + "\nMedium : total ratio = " + nf(ratioMedTotal, 0, 2) + "\nBig : total ratio = " + nf(ratioBigTotal, 0, 2), width/2, (height/2)+50);
 }
 
 // end button:
@@ -22,7 +23,8 @@ void drawEndButton() {
   stroke(0, 250, 154);
   rect(endButtonX, endButtonY, endButtonW, endButtonH, 10);
   fill(0);
-  text("START OVER", 400, 423);
+  textAlign(CENTER, CENTER);
+  text("START OVER", endButtonX, endButtonY);
 }
 
 // resetting if end button has been pressed:

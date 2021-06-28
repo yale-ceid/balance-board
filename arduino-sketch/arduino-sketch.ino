@@ -52,7 +52,7 @@ Serial.print (millis());
 Serial.print (",");
 
 scale1.set_scale(calibration_factor1); //Adjust to this calibration factor
-reading_1 = - scale1.get_units();
+reading_1 = scale1.get_units();
 
 Serial.print(reading_1, 1.00);
 Serial.print (","); 
@@ -64,7 +64,7 @@ Serial.print(reading_2, 1.00);
 Serial.print (","); 
 
 scale3.set_scale(calibration_factor3); //Adjust to this calibration factor
-reading_3 = scale3.get_units();
+reading_3 = - scale3.get_units();
 
 Serial.print(reading_3, 1.00);
 Serial.print (","); 
