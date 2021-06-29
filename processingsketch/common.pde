@@ -106,12 +106,14 @@ void drawCOMPos(boolean isFaded) {
   // STEP THREE: FIGURE OUT THE MAPPING
   // posX: IT SHOULD BE BETWEEN 0 and WIDTH
   // posY: IT SHOULD BE BETWEEN 0 AND HEIGHT
+  //bbx is the x boundary of the box 
+  //bby is the y booundry of the box
 
-  float xScaleStart = ((float (width)/470) + (float (width)/2)); 
-  float xScaleEnd = ((float (height)/300) + (float(height)/2)); 
+  bby = boxHeightScaleFactor * float (height);
+  bbx = bby * (1.5);
 
-  posX = int(map(centerMassX, 1.0, -1.0, xScaleStart, xScaleEnd));
-  posY = 100;
+  posX = int(map(centerMassX, 1.0, -1.0, (float (width) / 2.0) + (bbx/2.0), (float (width) / 2.0) - bbx/2.0));
+  posY = int(map(centerMassY, 1.0, -1.0, (float (height) / 2.0) + (bby/2.0), (float (height) / 2.0) - bby/2.0));
 
   println("posX: " + posX + ", posY: " + posY);
 

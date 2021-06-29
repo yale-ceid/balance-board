@@ -21,12 +21,12 @@ void drawScene() {
 
 // causing circles to move & bounce:
 void moveCircle() {
-  if (mouseX < width-smallCircleRad && mouseX > smallCircleRad)  {
-    circleCx = mouseX;
-  }
-  if (mouseY < height-smallCircleRad && mouseY > smallCircleRad) {
-    circleCy = mouseY;
-  }
+  //if (mouseX < width-smallCircleRad && mouseX > smallCircleRad)  {
+  //  circleCx = mouseX;
+  //}
+  //if (mouseY < height-smallCircleRad && mouseY > smallCircleRad) {
+  //  circleCy = mouseY;
+  //}
   
   //if (circleCx > width-bigCircleRad || circleCx < 0+bigCircleRad) {
   //  stepSize = -stepSize;

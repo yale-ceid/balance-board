@@ -1,7 +1,8 @@
 // variables physicians may want to configure:
-int bigCircleRad = 280;
-int medCircleRad = 180;
-int smallCircleRad = 80;
+float bigCircleRad = 3 * float (height); 
+float medCircleRad = 2 * float (height);
+float smallCircleRad = 1 * float (height);
 int playTime = 10000;
 float stepSize = 0.8;
-String posMode = "mouse"; // this can have two values: "mouse" or "COM"
+String posMode = "COM"; // this can have two values: "mouse" or "COM"
+float boxHeightScaleFactor = 0.67;

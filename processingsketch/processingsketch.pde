@@ -27,11 +27,17 @@ int timeBeforePlay;
 int posX;
 int posY;
 
+float lcx = 13.5;
+float lcy = 9;
+
+float bby;
+float bbx;
+
 // initialization of variables:
 void setup() {
   fullScreen();
-  //myPort = new Serial(this, "/dev/cu.usbmodem1101",115200); //comment this out if using mouse mode!
-  //myPort.bufferUntil('\n'); //comment this out if using mouse mode!
+  myPort = new Serial(this, "/dev/cu.usbmodem1101",115200); //comment this out if using mouse mode!
+  myPort.bufferUntil('\n'); //comment this out if using mouse mode!
   font = loadFont("Futura-Medium-48.vlw");
   //rectMode(CENTER);
   beginButtonX = width/2;
