@@ -12,6 +12,7 @@ Arduino and Processing code for the Balance Board project
     - [Arduino](#arduino)
     - [Processing](#processing)
       - [Flowchart](#flowchart)
+      - [Computing the center of mass](#computing-the-center-of-mass)
       - [Mapping center of mass to the screen](#mapping-center-of-mass-to-the-screen)
 
 ## Summary
@@ -38,13 +39,38 @@ The Processing code receives the load cell values over USB serial, parses them a
 
 ![](bb-architecture@2x.png)
 
+#### Computing the center of mass
+
+Imagine that each corner of the board (a pair of load cells) contributes a single reading. We have four readings:
+
+- `TL`: the top left reading
+- `TR`: the top right reading
+- `BL`: the bottom left reading
+- `BR`: the bottom right reading
+- `SUM` = `TL + TR + BL + BR`
+
+We would like to compute the center of mass along the x direction `cX` and the center of mass in the y direction `cY`. We would like each of these to range between [-1.0, 1.0].
+
+For the x direction, imagine that the left and right sides of the boards contribute a vector in that direction.
+
+- `-(TL + BL)` is the vector pointing left
+- `+(TR + BR)` is the vector pointing right
+
+Then, `cX` is just the average of the two vectors.
+
+- `cX = (-(TL + BL) + (TR + BR)) / SUM`
+
+Similarly, `cY` is the average of the two vectors pointing up and down.
+
+- `cY = (-(TL + TR) + (BL + BR)) / SUM`
+
 #### Mapping center of mass to the screen
 
 We first start with the physical board.
 
-- `lx`: Horizontal distance between the left and right sets of load cells
-- `ly`: Vertical distance between the top and bottom sets of the load cells
-- `ar = lx / ly`: The aspect ratio of the board
+- `lWidth`: Horizontal distance between the left and right sets of load cells
+- `lHeight`: Vertical distance between the top and bottom sets of the load cells
+- `ar = lWidth / lHeight`: The aspect ratio of the board
 
 Next, we move onto the Processing sketch, which will be run in `fullScreen()` and will have automatic `width` and `height` variables initialized at runtime.
 
@@ -55,12 +81,12 @@ To reiterate, we _could_ specify the `width` and `height` using `size()`, but si
 
 Next, we compute a bounding box that is of the same aspect ratio as the physical board, contained within our screen.
 
-- `by = magicNumber * height`
-- `bx = ar * by`
+- `bHeight = magicNumber * height`
+- `bWidth = ar * bHeight`
 
-We pick `by` to be some fraction of the height of the screen, and then constrain `bx` such that `bx` and `by` adhere to the previously calculated aspect ratio. Now we have an imaginary bounding box in our screen.
+We pick `bHeight` to be some fraction of the height of the screen, and then constrain `bWidth` such that `bWidth` and `bHeight` adhere to the previously calculated aspect ratio. Now we have an imaginary bounding box in our screen.
 
 Next, to map the center of mass, we call the `map()` function to map the `[-1.0, 1.0]` center of mass range to pixels.
 
-- `pixelX = map(cx, -1.0, 1.0, (width / 2) - (bx / 2), (width / 2) + (bx / 2))`
-- `pixelY = map(cy, -1.0, 1.0, (height / 2) - (by / 2), (height / 2) + (by / 2))`
+- `pixelX = map(cX, -1.0, 1.0, (width / 2) - (bWidth / 2), (width / 2) + (bWidth / 2))`
+- `pixelY = map(cY, -1.0, 1.0, (height / 2) - (bHeight / 2), (height / 2) + (bHeight / 2))`
