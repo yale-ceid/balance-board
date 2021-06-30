@@ -49,7 +49,7 @@ Imagine that each corner of the board (a pair of load cells) contributes a singl
 - `BR`: the bottom right reading
 - `SUM` = `TL + TR + BL + BR`
 
-We would like to compute the center of mass along the x direction `cX` and the center of mass in the y direction `cY`. We would like each of these to range between [-1.0, 1.0].
+We would like to compute the center of mass along the x direction `cX` and the center of mass in the y direction `cY`. We would like each of these to range between `[-1.0, 1.0]`.
 
 For the x direction, imagine that the left and right sides of the boards contribute a vector in that direction.
 
