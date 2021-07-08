@@ -24,7 +24,7 @@ void beginDialogue() {
 
 // begin button:
 void drawBeginButton() {
-  fill(0, 250, 154);
+  fill(0, 250, 154, 125);
   stroke(0, 250, 154);
   rect(beginButtonX - beginButtonW / 2, beginButtonY - beginButtonH / 2, beginButtonW, beginButtonH, 10);
   fill(0);

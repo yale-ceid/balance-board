@@ -21,6 +21,7 @@ float circleCy;
 float ratioSmallTotal;
 float ratioMedTotal;
 float ratioBigTotal;
+float endBarWidth;
 boolean isPlaying;
 boolean isEnding;
 int timeBeforePlay;
@@ -36,12 +37,12 @@ float bbx;
 // initialization of variables:
 void setup() {
   fullScreen();
-  myPort = new Serial(this, "/dev/cu.usbmodem1101",115200); //comment this out if using mouse mode!
-  myPort.bufferUntil('\n'); //comment this out if using mouse mode!
+  //myPort = new Serial(this, "/dev/cu.usbmodem1101",115200); //comment this out if using mouse mode!
+  //myPort.bufferUntil('\n'); //comment this out if using mouse mode!
   font = loadFont("Futura-Medium-48.vlw");
   //rectMode(CENTER);
   beginButtonX = width/2;
-  beginButtonY = height-100;
+  beginButtonY = height/2;
   beginButtonW = 300;
   beginButtonH = 100;
   endButtonX = width/2;
@@ -51,7 +52,7 @@ void setup() {
   circleCx = width/2;
   circleCy = height/2;
   isPlaying = false;
-  isEnding = false; 
+  isEnding = false;
 }
 
 // loop of begin/play/end states:
