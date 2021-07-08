@@ -18,6 +18,7 @@ int totalScoreNum = 0;
 int cursCircleRad = 50;
 float circleCx;
 float circleCy;
+float moveDirection = 100;
 float ratioSmallTotal;
 float ratioMedTotal;
 float ratioBigTotal;
