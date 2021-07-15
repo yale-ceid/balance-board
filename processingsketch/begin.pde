@@ -34,7 +34,7 @@ void drawBeginButton() {
 
 // playing & beginning counter if begin button has been pressed:
 void checkBeginPressed() {
-  if (mouseX >= beginButtonX - beginButtonW / 2  && mouseX <= (beginButtonX + beginButtonW) && mouseY >= beginButtonY - beginButtonH / 2 && mouseY <= (beginButtonY + beginButtonH)) {
+  if (mouseX >= beginButtonX - beginButtonW / 2  && mouseX <= (beginButtonX + beginButtonW) && mouseY >= beginButtonY - beginButtonH / 2 && mouseY <= (beginButtonY + beginButtonH) && (isPlaying == false)) {
     isPlaying = true;
     timeBeforePlay = millis();
   }
