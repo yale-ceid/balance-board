@@ -67,7 +67,7 @@ void draw() {
   }
 }
 
-// reading load cell data from arduino over serial and storing it in global variables:
+// reading load cell data from Arduino over serial and storing it in global variables:
 void serialEvent(Serial myPort) {
   String inString = myPort.readStringUntil('\n');
   if (inString != null) {

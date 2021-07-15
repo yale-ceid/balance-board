@@ -22,11 +22,11 @@ void drawScene() {
 // causing circles to move & bounce:
 void moveCircle() {
 // X-Y SHIFT MODE:
-  if (millis()-timeBeforePlay < playTime/2) {
-    circleCx = (width/2) + moveDirection * sin(4*3.1415*((float(millis())-float(timeBeforePlay))/float(playTime)));
+  if (millis()-timeBeforePlay < (playTime/2)-500.00) {
+    circleCx = (width/2) + moveDirection * sin(2*3.1415*((float(millis())-float(timeBeforePlay))/(float(playTime/2)-500.00)));
   }
-  else {
-    circleCy = (height/2) + moveDirection * sin(4*3.1415*((float(millis())-float(timeBeforePlay))/float(playTime)));
+  else if (millis()-timeBeforePlay > (playTime/2)+500.00){
+    circleCy = (height/2) + moveDirection * sin(2*3.1415*((float(millis())-float(timeBeforePlay)-500.00-float(playTime/2))/(float(playTime/2)-500.00)));
   }
 // MOUSE-TRACKING MODE:
   //if (mouseX < width-smallCircleRad && mouseX > smallCircleRad)  {
