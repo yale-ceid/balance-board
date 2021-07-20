@@ -1,7 +1,7 @@
 // play screen:
 void play() {
   drawScene();
-  //moveCircle(); // comment out if static mode desired
+  moveCircle();
   checkScore();
   checkRatios();
   checkIfEnding();
@@ -17,49 +17,42 @@ void drawScene() {
   drawPos(posMode, false);
   drawScore();
   drawRatios();
-  
-  // STATIC MODE - comment out if not desired:
-  textAlign(LEFT, TOP);
-  textLeading(80);
-  text("STATIC MODE", 100, 100);
-  fill(200);
-  
 }
 
-//// DYNAMIC MODE - comment out if not desired:
-//void moveCircle() {
-//  textAlign(LEFT, TOP);
-//  textLeading(80);
-//  text("DYNAMIC MODE", 100, 100);
-//  fill(200);
+// DYNAMIC MODE - comment out if not desired:
+void moveCircle() {
+  textAlign(LEFT, TOP);
+  textLeading(80);
+  text("DYNAMIC MODE", 100, 100);
+  fill(200);
   
-//// X-Y SHIFT MODE:
-//  if (millis()-timeBeforePlay < (playTime/2)-delayTime/2) {
-//    circleCx = (width/2) + moveDirection * sin(2*3.1415*((float(millis())-float(timeBeforePlay))/(float(playTime/2)-delayTime/2)));
-//  }
-//  else if (millis()-timeBeforePlay > (playTime/2)+delayTime/2){
-//    circleCy = (height/2) + moveDirection * sin(2*3.1415*((float(millis())-float(timeBeforePlay)-delayTime/2-float(playTime/2))/(float(playTime/2)-delayTime/2)));
-//  }
+// X-Y SHIFT MODE:
+  if (millis()-timeBeforePlay < (playTime/2)-delayTime/2) {
+    circleCx = (width/2) + moveDirection * sin(2*3.1415*((float(millis())-float(timeBeforePlay))/(float(playTime/2)-delayTime/2)));
+  }
+  else if (millis()-timeBeforePlay > (playTime/2)+delayTime/2){
+    circleCy = (height/2) + moveDirection * sin(2*3.1415*((float(millis())-float(timeBeforePlay)-delayTime/2-float(playTime/2))/(float(playTime/2)-delayTime/2)));
+  }
   
  //MOUSE-TRACKING MODE:
-  //if (mouseX < width-smallCircleRad && mouseX > smallCircleRad)  {
-  //  circleCx = mouseX;
-  //}
-  //if (mouseY < height-smallCircleRad && mouseY > smallCircleRad) {
-  //  circleCy = mouseY;
-  //}
+ // if (mouseX < width-smallCircleRad && mouseX > smallCircleRad)  {
+ //   circleCx = mouseX;
+ // }
+ // if (mouseY < height-smallCircleRad && mouseY > smallCircleRad) {
+ //   circleCy = mouseY;
+ // }
   
-  //if (circleCx > width-bigCircleRad || circleCx < 0+bigCircleRad) {
-  //  stepSize = -stepSize;
-  //}
-  //if (circleCy > height-bigCircleRad || circleCy < 0+bigCircleRad) {
-  //  stepSize = -stepSize;
-  //}
-  //if (millis() % 1 == 0) {
-  //  circleCx += stepSize;
-  //  circleCy += stepSize;
-  //}
-//}
+ // if (circleCx > width-bigCircleRad || circleCx < 0+bigCircleRad) {
+ //   stepSize = -stepSize;
+ // }
+ // if (circleCy > height-bigCircleRad || circleCy < 0+bigCircleRad) {
+ //   stepSize = -stepSize;
+ // }
+ // if (millis() % 1 == 0) {
+ //   circleCx += stepSize;
+ //   circleCy += stepSize;
+ // }
+}
 
 // drawing various scores in bottom left corner:
 void drawScore() {
