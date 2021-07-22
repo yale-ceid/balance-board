@@ -1,0 +1,77 @@
+// play screen:
+void playStatic() {
+  drawStaticScene();
+  checkStaticScore();
+  checkStaticRatios();
+  checkIfStaticEnding();
+}
+
+// drawing play scene:
+void drawStaticScene() {
+  background(0);
+  fill(0);
+  drawBigCircle(false);
+  drawMedCircle(false);
+  drawSmallCircle(false);
+  drawPos(posMode, false);
+  drawStaticScore();
+  drawStaticRatios();
+  textAlign(LEFT, TOP);
+  textLeading(80);
+  text("STATIC MODE", 100, 100);
+  fill(200);
+}
+
+// drawing various scores in bottom left corner:
+void drawStaticScore() {
+  textSize(30);
+  textAlign(LEFT, BOTTOM);
+  fill(255, 165, 0);
+  text("Score: " + str(bigScoreNum), 50, height-200);
+  fill(255, 255, 153);
+  text("Score: " + str(medScoreNum), 50, height-150);
+  fill(152, 251, 152);
+  text("Score: " + str(smallScoreNum), 50, height-100);
+  fill(255);
+  text("Total score: " + str(totalScoreNum), 50, height-50);
+}
+
+// changing the score according to position:
+void checkStaticScore() {
+  float dBig = sqrt(pow(circleCy - posY, 2) + pow(circleCx - posX, 2));
+  if (dBig <= bigCircleRad) {
+    bigScoreNum++;
+  }
+  float dMed = sqrt(pow(circleCy - posY, 2) + pow(circleCx - posX, 2));
+  if (dMed <= medCircleRad) {
+    medScoreNum++;
+  }
+  float dSmall = sqrt(pow(circleCy - posY, 2) + pow(circleCx - posX, 2));
+  if (dSmall <= smallCircleRad) {
+    smallScoreNum++;
+  }
+  totalScoreNum++;
+}
+
+// checking ratios between various scores:
+void checkStaticRatios() {
+  ratioSmallTotal = smallScoreNum/float(totalScoreNum);
+  ratioMedTotal = medScoreNum/float(totalScoreNum);
+  ratioBigTotal = bigScoreNum/float(totalScoreNum);
+}
+
+// drawing ratios in bottom right corner:
+void drawStaticRatios() {
+  fill(255, 255, 255);
+  textAlign(RIGHT, BOTTOM);
+  text("Small : total ratio = " + nf(ratioSmallTotal, 0, 2), width-50, height-150);
+  text("Medium : total ratio = " + nf(ratioMedTotal, 0, 2), width-50, height-100);
+  text("Big : total ratio = " + nf(ratioBigTotal, 0, 2), width-50, height-50);
+}
+
+// checking if play state should end:
+void checkIfStaticEnding() {
+  if (millis()-timeBeforePlay > playTime) {
+    isEnding = true;
+  }
+}
