@@ -60,7 +60,7 @@ void setup() {
   beginButtonW = 350;
   beginButtonH = 100;
   endButtonX = width/2;
-  endButtonY = 3*height/4;
+  endButtonY = 6*height/7;
   endButtonW = 400;
   endButtonH = 100;
   circleCx = width/2;

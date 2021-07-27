@@ -5,6 +5,10 @@ void end() {
   textAlign(CENTER, BOTTOM);
   textSize(30);
   drawAvePos();
+  drawAvePosCircle();
+  drawBigCircle(true);
+  drawMedCircle(true);
+  drawSmallCircle(true);
   drawEndText();
   drawEndBar();
   drawEndFill();
@@ -13,12 +17,13 @@ void end() {
 
 // text on end screen:
 void drawEndText() {
+  fill(255);
   textSize(50);
-  text("FINAL RESULTS:", width/2, height/4);
+  text("FINAL RESULTS:", width/2, height/4-100);
   textSize(40);
   textLeading(80);
-  text("Balance percentage: " + nf(ratioSmallTotal*100, 0, 2) + "%", width/2, (height/2-150));
-  text("Average X position: " + nf(avePosX, 0, 2) + " / Average Y position: " + nf(avePosY, 0, 2), width/2, (height/2 - 100));
+  text("Balance percentage: " + nf(ratioSmallTotal*100, 0, 2) + "%", width/2, (height/2)-230);
+  text("Average X position: " + nf(avePosX, 0, 2) + " / Average Y position: " + nf(avePosY, 0, 2), width/2, (height/2 + 125));
   //text("Small : total ratio = " + nf(ratioSmallTotal, 0, 2) + "\nMedium : total ratio = " + nf(ratioMedTotal, 0, 2) + "\nBig : total ratio = " + nf(ratioBigTotal, 0, 2), width/2, (height/2)+50);
 }
 
@@ -26,7 +31,7 @@ void drawEndText() {
 void drawEndBar() {
   stroke(255);
   noFill();
-  rect(width/2-300, height/2, 600, 80, 7);
+  rect((width/2)-300, height/2-150, 600, 80, 7);
 }
 
 void drawEndFill() {
@@ -44,12 +49,19 @@ void drawEndFill() {
     fill(50, 205, 50);
     stroke(50, 205, 50);
   }
-  rect((width/2-300)+5, (height/2)+5, endBarWidth-10, 80-10, 1);
+  rect((width/2-300)+5, (height/2)-145, endBarWidth-10, 80-10, 1);
 }
 
 void drawAvePos() {
   avePosX = sumPosX / float(totalScoreNum);
   avePosY = sumPosY / float(totalScoreNum);
+}
+
+void drawAvePosCircle() {
+  stroke(102, 205, 170, 90);
+  fill(32, 178, 170 );
+  circle(avePosX, avePosY, 50);
+  noFill();
 }
 
 // end button:
