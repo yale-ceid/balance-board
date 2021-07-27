@@ -94,6 +94,9 @@ void checkDynamicScore() {
     backwardScoreNum++;
   }
   totalScoreNum++;
+
+  sumPosX = sumPosX + float(posX);
+  sumPosY = sumPosY + float(posY);
 }
 
 // checking ratios between various scores:

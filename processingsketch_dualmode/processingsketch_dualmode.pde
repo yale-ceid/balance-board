@@ -37,6 +37,10 @@ boolean isEnding;
 int timeBeforePlay;
 int posX;
 int posY;
+float sumPosX = 0;
+float sumPosY = 0;
+float avePosX;
+float avePosY;
 
 float lcx = 13.5;
 float lcy = 9;
