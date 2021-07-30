@@ -21,6 +21,8 @@ void beginDialogue() {
   textLeading(80);
   text("Welcome to the Balance Board!\nClick on the button below to start the game.", 100, 100);
   fill(200);
+  textSize(20);
+  text("© Yale CEID 2021. Contributors: Lawrence Wilen, Mel Adams, Kalina Mladenova, Sarim Abbas, Antonio Medina, Kayla Morgan and Lily Dorstewitz.", 50, height-50);
 }
 
 // begin button:

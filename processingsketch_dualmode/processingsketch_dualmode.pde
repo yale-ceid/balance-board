@@ -51,8 +51,8 @@ float bbx;
 // initialization of variables:
 void setup() {
   fullScreen();
-  //myPort = new Serial(this, "/dev/cu.usbmodem1101",115200); //comment this out if using mouse mode!
-  //myPort.bufferUntil('\n'); //comment this out if using mouse mode!
+  myPort = new Serial(this, "/dev/cu.usbmodem1101",115200); //comment this out if using mouse mode!
+  myPort.bufferUntil('\n'); //comment this out if using mouse mode!
   font = loadFont("Futura-Medium-48.vlw");
   //rectMode(CENTER);
   beginButtonX = width/2;
@@ -60,7 +60,7 @@ void setup() {
   beginButtonW = 350;
   beginButtonH = 100;
   endButtonX = width/2;
-  endButtonY = 6*height/7;
+  endButtonY = 8*height/9;
   endButtonW = 400;
   endButtonH = 100;
   circleCx = width/2;
